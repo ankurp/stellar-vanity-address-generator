@@ -6,7 +6,13 @@
   "bin": {
     "svag": "./index.js"
   },
+  "engines": {
+    "node": ">=6.12"
+  },
   "scripts": {},
-  "author": "",
-  "license": "ISC"
+  "author": "Ankur Patel <ankur@encoredevlabs.com>",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.15.0"
+  }
 }

@@ -1,12 +1,30 @@
 #!/usr/bin/env node
+const program = require('commander');
 const StellarSdk = require('stellar-sdk');
+const package = require('./package.json');
+program
+  .version(package.version)
+  .option('-p, --prefix', 'Find address that begins with the words specified')
+  .option('-s, --suffix', 'Find address that end with the words specified')
+  .parse(process.argv);
 
-const suffix = process.argv[2].toUpperCase();
-console.log(`Finding address ending in ${suffix}`)
+const ignoreFlags = w => w !== '-p' && w !== '--prefix' && w !== '-s' && w !== '--suffix';
+
+const words = process.argv.slice(2).filter(ignoreFlags).map(w => w.toUpperCase());
+console.log(`Finding address ending in ${words.join(' or ')}`)
+
+program.suffix = program.suffix || (!program.prefix && !program.suffix);
 
 do {
   const pair = StellarSdk.Keypair.random();
-  if (pair.publicKey().endsWith(suffix)) {
+  const publicKey = pair.publicKey();
+  if (program.prefix && words.some(w => publicKey.startsWith(w, 1))) {
+    console.log('Public: ', pair.publicKey());
+    console.log('Secret: ', pair.secret());
+    break;
+  }
+
+  if (program.suffix && words.some(w => publicKey.endsWith(w))) {
     console.log('Public: ', pair.publicKey());
     console.log('Secret: ', pair.secret());
     break;
