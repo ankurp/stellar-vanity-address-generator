@@ -1,0 +1,12 @@
+{
+  "name": "stellar-vanity-address-generator",
+  "version": "1.0.0",
+  "description": "Vanity Address Generator for Stellar Public Key/Address",
+  "main": "index.js",
+  "bin": {
+    "svag": "./index.js"
+  },
+  "scripts": {},
+  "author": "",
+  "license": "ISC"
+}
