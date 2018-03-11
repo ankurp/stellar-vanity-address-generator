@@ -35,3 +35,9 @@ For example: `svag cat dog`
 1. You can find addresses that end with or begin with a specific word
 1. Supports searching of multiple words instead of one at a time
 1. It maximizes the use of all cores on your machine to find a word as fast as possible
+
+# Donate
+
+If you like this project, consider making a donation via Stellar to support its development:
+
+GBPPQIUAJTO3U6QRY4ONCFGEYZR5GAZQVGRN346GTSN3E2UX4DOGMOON
