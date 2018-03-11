@@ -9,10 +9,21 @@
   "engines": {
     "node": ">=6.12"
   },
-  "scripts": {},
+  "scripts": {
+    "release": "np",
+    "test": "xo"
+  },
   "author": "Ankur Patel <ankur@encoredevlabs.com>",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.15.0"
+    "commander": "^2.15.0",
+    "stellar-sdk": "^0.8.0"
+  },
+  "devDependencies": {
+    "np": "^2.20.1",
+    "xo": "^0.20.3"
+  },
+  "xo": {
+    "space": true
   }
 }

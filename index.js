@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 const program = require('commander');
 const StellarSdk = require('stellar-sdk');
-const package = require('./package.json');
+const pkg = require('./package.json');
+
 program
-  .version(package.version)
+  .version(pkg.version)
   .option('-p, --prefix', 'Find address that begins with the words specified')
   .option('-s, --suffix', 'Find address that end with the words specified')
   .parse(process.argv);
@@ -11,7 +12,7 @@ program
 const ignoreFlags = w => w !== '-p' && w !== '--prefix' && w !== '-s' && w !== '--suffix';
 
 const words = process.argv.slice(2).filter(ignoreFlags).map(w => w.toUpperCase());
-console.log(`Finding address ending in ${words.join(' or ')}`)
+console.log(`Finding address ending in ${words.join(' or ')}`);
 
 program.suffix = program.suffix || (!program.prefix && !program.suffix);
 
@@ -29,4 +30,4 @@ do {
     console.log('Secret: ', pair.secret());
     break;
   }
-} while (true)
+} while (true); // eslint-disable-line no-constant-condition
