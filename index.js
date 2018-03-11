@@ -9,12 +9,13 @@ program
   .option('-s, --suffix', 'Find address that end with the words specified')
   .parse(process.argv);
 
+program.suffix = program.suffix || (!program.prefix && !program.suffix);
+
+const searchLocation = [program.prefix && 'beginning', program.suffix && 'ending'].filter(w => w).join('/');
 const ignoreFlags = w => w !== '-p' && w !== '--prefix' && w !== '-s' && w !== '--suffix';
 
 const words = process.argv.slice(2).filter(ignoreFlags).map(w => w.toUpperCase());
-console.log(`Finding address ending in ${words.join(' or ')}`);
-
-program.suffix = program.suffix || (!program.prefix && !program.suffix);
+console.log(`Finding address ${searchLocation} in ${words.join(' or ')}`);
 
 do {
   const pair = StellarSdk.Keypair.random();
