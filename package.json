@@ -1,6 +1,6 @@
 {
   "name": "stellar-vanity-address-generator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vanity Address Generator for Stellar Public Key/Address",
   "main": "index.js",
   "bin": {
