@@ -7,7 +7,7 @@
     "svag": "./index.js"
   },
   "engines": {
-    "node": ">=6.12"
+    "node": ">=6.14"
   },
   "scripts": {
     "release": "np",
@@ -16,8 +16,8 @@
   "author": "Ankur Patel <ankur@encoredevlabs.com>",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.15.0",
-    "stellar-sdk": "^0.8.0"
+    "commander": "^8.2.0",
+    "stellar-sdk": "^8.3.0"
   },
   "devDependencies": {
     "np": "^2.20.1",
